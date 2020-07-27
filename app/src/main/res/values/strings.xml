@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Read My Course</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Read My Course</string>
+    <string name="nav_header_subtitle">Online learning for everyone</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_instructor_classroom">Classroom</string>
+    <string name="menu_instructor_create_new">Create new classroom</string>
+    <string name="menu_instructor_view_all_classrooms">View all classroom</string>
+    <string name="menu_instructor_courses">Courses</string>
+    <string name="menu_instructor_assignments">Assignments</string>
+    <string name="menu_instructor_tests">Tests</string>
+    <string name="menu_instructor_students">Students</string>
+    <string name="home_second">Home Second</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+</resources>
