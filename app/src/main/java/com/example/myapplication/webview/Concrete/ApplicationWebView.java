@@ -26,6 +26,9 @@ public class ApplicationWebView extends WebViewClient implements IApplicationWeb
     }
     @Override
     public void onPageFinished(WebView view, String url) {
+        iWebViewCallback.onPageFinished(view,url);
         super.onPageFinished(view, url);
+
     }
+
 }

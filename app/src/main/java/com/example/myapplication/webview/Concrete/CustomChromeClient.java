@@ -2,10 +2,14 @@ package com.example.myapplication.webview.Concrete;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -24,6 +28,9 @@ public class CustomChromeClient extends WebChromeClient implements ICustomChrome
         this.context=context;
         initializePinePGLoader();
     }
+
+
+
     @Override
     public boolean onCreateWindow(WebView view, boolean dialog, boolean userGesture, Message resultMsg) {
         WebView.WebViewTransport transport = (WebView.WebViewTransport) resultMsg.obj;
@@ -57,7 +64,7 @@ public class CustomChromeClient extends WebChromeClient implements ICustomChrome
                 progressDialogue.setCanceledOnTouchOutside(false);
                 progressDialogue.setCancelable(false);
                 progressDialogue.setContentView(R.layout.app_loader);
-                Objects.requireNonNull(progressDialogue.getWindow()).setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+                Objects.requireNonNull(progressDialogue.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             }
         }
     }

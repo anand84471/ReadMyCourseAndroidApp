@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.myapplication.MainActivity;
@@ -75,6 +74,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void savePrefsData() {
+
         SharedPreferences pref = getApplicationContext().getSharedPreferences("myPrefs",MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putBoolean("isUserTypeSelected",true);

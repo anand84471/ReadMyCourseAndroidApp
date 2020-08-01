@@ -5,7 +5,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -46,6 +48,12 @@ public class IntroActivity extends AppCompatActivity {
             setContentView(R.layout.activity_intro);
             // hide the action bar
             getSupportActionBar().hide();
+            Uri data = this.getIntent().getData();
+            if (data != null ) {
+                String uri = this.getIntent().getDataString();
+                Log.i("MyApp", "Deep link clicked " + uri);
+            }
+
             // ini views
             btnNext = findViewById(R.id.btn_next);
             btnGetStarted = findViewById(R.id.btn_get_started);

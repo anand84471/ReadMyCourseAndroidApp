@@ -3,8 +3,10 @@ package com.example.myapplication.DI.Concrete;
 import android.content.Context;
 
 import com.example.myapplication.DI.Abstract.IServiceLocator;
+import com.example.myapplication.MainActivity;
+import com.example.myapplication.utilities.Abstract.IApplicationProgressBarUtils;
+import com.example.myapplication.utilities.Concrete.ApplicationProgressBarUtils;
 import com.example.myapplication.webview.Abstract.IApplicationWebView;
-import com.example.myapplication.webview.Abstract.ICustomChromeClient;
 import com.example.myapplication.webview.Abstract.IWebViewCallback;
 import com.example.myapplication.webview.Concrete.ApplicationWebView;
 import com.example.myapplication.webview.Concrete.CustomChromeClient;
@@ -23,12 +25,17 @@ public class ServiceLocator implements IServiceLocator {
     }
 
     @Override
-    public ICustomChromeClient getCustomChromeClient(Context ctx) {
+    public CustomChromeClient getCustomChromeClient(Context ctx) {
         return  new CustomChromeClient(ctx);
     }
 
     @Override
-    public IApplicationWebView getApplicationWebView(Context ctx) {
-        return new ApplicationWebView(new WebViewCallback(ctx));
+    public IApplicationWebView getApplicationWebView(Context ctx, IWebViewCallback webViewCallback) {
+        return new ApplicationWebView( webViewCallback);
+    }
+
+    @Override
+    public IApplicationProgressBarUtils getApplicationProgressBarUtils() {
+        return new ApplicationProgressBarUtils();
     }
 }

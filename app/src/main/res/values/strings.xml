@@ -21,4 +21,6 @@
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="sign_up_continue_as_instructor">Continue as Instructor</string>
+    <string name="sign_up_continue_as_student">Continue as Student</string>
 </resources>
