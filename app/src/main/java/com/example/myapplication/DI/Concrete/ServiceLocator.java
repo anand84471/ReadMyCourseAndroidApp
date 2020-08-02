@@ -3,7 +3,11 @@ package com.example.myapplication.DI.Concrete;
 import android.content.Context;
 
 import com.example.myapplication.DI.Abstract.IServiceLocator;
-import com.example.myapplication.MainActivity;
+import com.example.myapplication.apiclient.ApiLayer.Abstract.IApplicationRetrofitInterface;
+import com.example.myapplication.apiclient.ApiLayer.Abstract.IStudentApiController;
+import com.example.myapplication.apiclient.ApiLayer.Concrete.ApplicationRetrofitInterface;
+import com.example.myapplication.apiclient.BusinessLayer.Abstract.IStudentApiBusinessLayer;
+import com.example.myapplication.apiclient.ServiceLayer.Abstract.IStudentApiServiceLayer;
 import com.example.myapplication.utilities.Abstract.IApplicationProgressBarUtils;
 import com.example.myapplication.utilities.Concrete.ApplicationProgressBarUtils;
 import com.example.myapplication.webview.Abstract.IApplicationWebView;
@@ -30,8 +34,28 @@ public class ServiceLocator implements IServiceLocator {
     }
 
     @Override
+    public IStudentApiBusinessLayer getStudentApiBusinessService() {
+        return null;
+    }
+
+    @Override
+    public IStudentApiController getStudentApiController() {
+        return null;
+    }
+
+    @Override
+    public IStudentApiServiceLayer getStudentApiServiceLayer() {
+        return null;
+    }
+
+    @Override
     public IApplicationWebView getApplicationWebView(Context ctx, IWebViewCallback webViewCallback) {
         return new ApplicationWebView( webViewCallback);
+    }
+
+    @Override
+    public IApplicationRetrofitInterface getApplicationRetrofitInterface() {
+        return new ApplicationRetrofitInterface();
     }
 
     @Override

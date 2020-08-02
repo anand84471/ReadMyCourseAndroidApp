@@ -1,7 +1,7 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.MaterialComponents.Light">
-        <item name="colorPrimary">#FFFFFF</item>
+        <item name="colorPrimary">@color/background</item>
         <item name="colorPrimaryVariant">#000000</item>
         <item name="colorOnPrimary">#000000</item>
         <item name="colorSecondary">#2962FF</item>
@@ -9,7 +9,7 @@
         <item name="colorOnSecondary">#212121</item>
         <item name="colorError">#F44336</item>
         <item name="colorOnError">#FFFFFF</item>
-        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorSurface">@color/background</item>
         <item name="colorOnSurface">#212121</item>
         <item name="colorControlNormal">#F50057</item>
         <item name="android:colorBackground">@color/background</item>

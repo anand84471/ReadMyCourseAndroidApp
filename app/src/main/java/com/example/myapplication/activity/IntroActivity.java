@@ -40,6 +40,18 @@ public class IntroActivity extends AppCompatActivity {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
             // when this activity is about to be launch we need to check if its openened before or not
+            Uri data = getIntent().getData();
+            if (data != null ) {
+                String uri = getIntent().getDataString();
+                if(data.toString().contains("meet.jit.si")||uri.toString().contains("meet.jit.si"))
+                {
+                    Intent mainActivity = new Intent(getApplicationContext(),JitsiMeetingActivity.class);
+                    startActivity(mainActivity);
+                    finish();
+                    return;
+                }
+            }
+
             if (restorePrefData()) {
                 Intent mainActivity = new Intent(getApplicationContext(), SplashActivity.class );
                 startActivity(mainActivity);
@@ -48,11 +60,7 @@ public class IntroActivity extends AppCompatActivity {
             setContentView(R.layout.activity_intro);
             // hide the action bar
             getSupportActionBar().hide();
-            Uri data = this.getIntent().getData();
-            if (data != null ) {
-                String uri = this.getIntent().getDataString();
-                Log.i("MyApp", "Deep link clicked " + uri);
-            }
+
 
             // ini views
             btnNext = findViewById(R.id.btn_next);
@@ -102,23 +110,16 @@ public class IntroActivity extends AppCompatActivity {
                     if (tab.getPosition() == mList.size()-1) {
 
                         loaddLastScreen();
-
                     }
-
-
                 }
 
                 @Override
                 public void onTabUnselected(TabLayout.Tab tab) {
-
                 }
-
                 @Override
                 public void onTabReselected(TabLayout.Tab tab) {
-
                 }
             });
-
 
 
             // Get Started button click listener

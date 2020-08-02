@@ -23,7 +23,7 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (restorePrefData()) {
-            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class );
+            Intent mainActivity = new Intent(getApplicationContext(), SplashActivity.class );
             startActivity(mainActivity);
             finish();
         }
@@ -61,7 +61,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 savePrefsData();
-                Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class );
+                Intent mainActivity = new Intent(getApplicationContext(), SplashActivity.class );
                 startActivity(mainActivity);
                 finish();
             }

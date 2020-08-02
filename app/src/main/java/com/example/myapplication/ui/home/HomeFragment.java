@@ -40,7 +40,7 @@ import static androidx.constraintlayout.widget.Constraints.TAG;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    private WebView webView;
+    public WebView webView;
     Dialog progressbar=null;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -193,9 +193,9 @@ public class HomeFragment extends Fragment {
         }
         return root;
     }
-    private boolean getIsInstructorAccount() {
+    protected boolean getIsInstructorAccount() {
         SharedPreferences pref =  requireContext().getSharedPreferences("myPrefs",MODE_PRIVATE);
-        Boolean isIntroActivityOpnendBefore = pref.getBoolean("isUserTypeSelected",false);
+        Boolean isIntroActivityOpnendBefore = pref.getBoolean("isInstructorSelected",false);
         return  isIntroActivityOpnendBefore;
     }
     private ValueCallback<Uri> mUploadMessage;

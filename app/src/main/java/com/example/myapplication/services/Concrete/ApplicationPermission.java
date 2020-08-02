@@ -13,7 +13,10 @@ public class ApplicationPermission extends AppCompatActivity implements IApplica
 //            android.Manifest.permission.READ_CONTACTS,
 //            android.Manifest.permission.WRITE_CONTACTS,
             android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_EXTERNAL_STORAGE
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.CAMERA,
+            Manifest.permission.RECORD_AUDIO,
+            Manifest.permission.MODIFY_AUDIO_SETTINGS
 //            android.Manifest.permission.READ_SMS,
 //            android.Manifest.permission.CAMERA
     };

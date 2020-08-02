@@ -6,14 +6,16 @@ android {
 
     defaultConfig {
         applicationId "com.example.myapplication"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -37,4 +39,11 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.android.support:support-annotations:28.0.0'
+    implementation('org.jitsi.react:jitsi-meet-sdk:2.+') { transitive = true }
+    implementation "com.squareup.okhttp3:logging-interceptor:3.14.1"
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.1'
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
 }
