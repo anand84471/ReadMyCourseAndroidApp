@@ -20,7 +20,6 @@ public class ProfileFragment extends HomeFragment {
         }
         else {
             webView.loadUrl(ConfigConstants.READ_MY_COURSE_PRODUCTION_URL_STUDENT_PROFILE);
-
         }
         return view;
     }
