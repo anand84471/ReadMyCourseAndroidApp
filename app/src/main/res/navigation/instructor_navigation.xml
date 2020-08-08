@@ -6,7 +6,7 @@
     app:startDestination="@+id/nav_instructor_home">
     <fragment
         android:id="@+id/nav_instructor_home"
-        android:name="com.example.myapplication.ui.home.HomeFragment"
+        android:name="com.readmycourse.android.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home">
 
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_instructor_start_teaching"
-        android:name="com.example.myapplication.ui.learning.StudentStartLearningFragment"
+        android:name="com.readmycourse.android.ui.learning.StudentStartLearningFragment"
         android:label="@string/home_second"
         tools:layout="@layout/fragment_home">
 
@@ -24,17 +24,17 @@
 
     <fragment
         android:id="@+id/nav_instructor_profile"
-        android:name="com.example.myapplication.ui.profile.ProfileFragment"
+        android:name="com.readmycourse.android.ui.profile.ProfileFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/nav_instructor_activity"
-        android:name="com.example.myapplication.ui.activity.ActivityFragment"
+        android:name="com.readmycourse.android.ui.activity.ActivityFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/nav_instructor_contact"
-        android:name="com.example.myapplication.ui.contact.ContactFragment"
+        android:name="com.readmycourse.android.ui.contact.ContactFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_home" />
 </navigation>
