@@ -1,8 +1,6 @@
 package com.readmycourse.android.activity;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -14,11 +12,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.readmycourse.android.R;
 import com.google.android.material.tabs.TabLayout;
 import com.readmycourse.android.constants.ConfigConstants;
-
 import java.util.ArrayList;
 import java.util.List;
 public class IntroActivity extends AppCompatActivity {
@@ -41,9 +37,15 @@ public class IntroActivity extends AppCompatActivity {
             Uri data = getIntent().getData();
             if (data != null ) {
                 String uri = getIntent().getDataString();
-                if(data.toString().contains("meet.jit.si")||uri.toString().contains("meet.jit.si"))
+                if(data.toString().contains("readmycourse.com")||uri.toString().contains("meet.jit.si"))
                 {
+                    String room_name = data.getQueryParameter("room_name");
+                    String request_type = data.getQueryParameter("request_type");
+                    String subject = data.getQueryParameter("subject");
                     Intent mainActivity = new Intent(getApplicationContext(),JitsiMeetingActivity.class);
+                    mainActivity.putExtra("room_name",room_name);
+                    mainActivity.putExtra("request_type",request_type);
+                    mainActivity.putExtra("subject",subject);
                     startActivity(mainActivity);
                     finish();
                     return;

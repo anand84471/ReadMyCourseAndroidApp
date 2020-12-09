@@ -2,24 +2,24 @@ package com.readmycourse.android.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import com.readmycourse.android.R;
 import com.facebook.react.modules.core.PermissionListener;
 import com.readmycourse.android.services.Concrete.ApplicationPermission;
-
 import org.jitsi.meet.sdk.JitsiMeetActivity;
 import org.jitsi.meet.sdk.JitsiMeetActivityDelegate;
 import org.jitsi.meet.sdk.JitsiMeetActivityInterface;
 import org.jitsi.meet.sdk.JitsiMeetConferenceOptions;
 import org.jitsi.meet.sdk.JitsiMeetView;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class JitsiMeetingActivity extends ApplicationPermission implements JitsiMeetActivityInterface {
     private JitsiMeetView view;
-    private String strMeetingId;
+    private String strRoomName;
     private String strMeetingAccessCode;
+    private String strSubject;
+    private String strRequestType;
+    private boolean iSJoinRequest;
     @Override
     protected void onActivityResult(
             int requestCode,
@@ -34,23 +34,34 @@ public class JitsiMeetingActivity extends ApplicationPermission implements Jitsi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jitsi_meeting);
         getAllPermissions();
+        parseBundleData();
+    }
+
+    private void createJitsiMeeting()  {
         try {
             view = new JitsiMeetView(this);
             JitsiMeetConferenceOptions options = new JitsiMeetConferenceOptions.Builder()
                     .setServerURL(new URL("https://meet.jit.si"))
-                    .setRoom("saddddddddddddddddddasd21313123123131312")
+                    .setRoom(strRoomName)
                     .setAudioMuted(false)
                     .setVideoMuted(false)
                     .setAudioOnly(false)
-                    .setWelcomePageEnabled(true)
+                    .setWelcomePageEnabled(false)
+                    .setSubject(strSubject)
                     .build();
-            //view.join(options);
-            JitsiMeetActivity.launch(this, options);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
+            if(iSJoinRequest){
+                JitsiMeetActivity.launch(this, options);
+            }
+            else {
+                JitsiMeetActivity.launch(this, options);
+            }
+
+        }
+        catch (Exception Ex)
+        {
+
         }
     }
-
     @Override
     public void requestPermissions(String[] strings, int i, PermissionListener permissionListener) {
 
@@ -65,10 +76,8 @@ public class JitsiMeetingActivity extends ApplicationPermission implements Jitsi
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         view.dispose();
         view = null;
-
         JitsiMeetActivityDelegate.onHostDestroy(this);
     }
 
@@ -99,12 +108,27 @@ public class JitsiMeetingActivity extends ApplicationPermission implements Jitsi
 
         JitsiMeetActivityDelegate.onHostPause(this);
     }
-    private void createMeeting()
-    {
 
-    }
-    private  void joinMeeting()
+    private void parseBundleData()
     {
-        
+        try {
+            Bundle intentData = getIntent().getExtras();
+            if(intentData != null){
+                strRoomName=intentData.getString("room_name");
+                strSubject=intentData.getString("subject");
+                strRequestType =intentData.getString("request_type");
+                if(strRoomName!=null)
+                {
+                    iSJoinRequest= !strRequestType.equals("create");
+                    createJitsiMeeting();
+                }
+            }
+
+        }
+        catch (Exception Ex)
+        {
+
+        }
     }
+
 }

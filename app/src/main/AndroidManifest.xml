@@ -7,9 +7,12 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" tools:node="remove" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" tools:node="remove" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" tools:node="remove"/>
+<!--    <uses-permission android:name="android.permission.CAMERA" tools:node="remove" />-->
+<!--    <uses-permission android:name="android.permission.RECORD_AUDIO" tools:node="remove" />-->
+<!--    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" tools:node="remove"/>-->
+        <uses-permission android:name="android.permission.CAMERA" />
+        <uses-permission android:name="android.permission.RECORD_AUDIO" />
+        <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <application
         android:usesCleartextTraffic="true"
 
@@ -25,7 +28,17 @@
         <activity android:name=".activity.StudnetActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".activity.JitsiMeetingActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="https"
+                    android:host="www.readmycourse.com"
+                    android:pathPrefix="/StartMeeting" />
+                <data android:scheme="app" android:host="com.readmycourse.android" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activity.SignUpActivity" />
         <activity
             android:name=".activity.SplashActivity"
@@ -62,35 +75,28 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data
                     android:host="www.readmycourse.com"
                     android:scheme="http" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data
                     android:host="readmycourse.com"
                     android:scheme="http" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data
                     android:host="readmycourse.com"
                     android:scheme="https" />
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

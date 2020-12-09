@@ -59,8 +59,4 @@ public class MainActivity extends ApplicationPermission {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
-
-
-
 }
